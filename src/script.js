@@ -22,7 +22,7 @@ const roughTexture = textureLoader.load('textures/normal-pumice.jfif');
 
 
 // Canvas
-const canvas = document.querySelector('canvas.webgl')
+const canvas = document.querySelector('div.webgl')
 
 // Scene
 const scene = new THREE.Scene()
