@@ -1,15 +1,9 @@
-require('three');
-require('dat');
-
 import * as THREE from 'three'
-import * as dat from 'dat.gui'
 import { DoubleSide } from 'three';
 
 let previousShadowMap = false;
 
 //debug
-
-const gui = new dat.GUI()
 
 // loading
 const textureLoader = new THREE.TextureLoader()
