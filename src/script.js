@@ -1,4 +1,4 @@
-import * as THREE from 'portfolio/ThreeJSProject/node_modules/three'
+import * as THREE from 'three'
 import { DoubleSide } from 'three';
 
 let previousShadowMap = false;
