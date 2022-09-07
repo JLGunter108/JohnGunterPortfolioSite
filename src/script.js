@@ -1,3 +1,6 @@
+require('three');
+require('dat');
+
 import * as THREE from 'three'
 import * as dat from 'dat.gui'
 import { DoubleSide } from 'three';
