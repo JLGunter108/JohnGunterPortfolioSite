@@ -1,4 +1,4 @@
-import * as THREE from 'three'
+import * as THREE from 'https://threejs.org/build/three.js'
 import { DoubleSide } from 'three';
 
 let previousShadowMap = false;
@@ -16,7 +16,7 @@ const roughTexture = textureLoader.load('textures/normal-pumice.jfif');
 
 
 // Canvas
-const canvas = document.querySelector('div.webgl')
+const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
@@ -76,18 +76,18 @@ const sizes = {
 
 window.addEventListener('resize', () =>
 {
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-    renderer.setSize(sizes.width, sizes.height)
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
+    camera.aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
 // Base camera
 const camera = new THREE.PerspectiveCamera(95, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(0,0,2.5)
-scene.add(camera)
+scene.add(camera);
 
 
 // Renderer
@@ -100,7 +100,7 @@ renderer.physicallyCorrectLights = true;
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.shadowMap.enabled = true;
 renderer.toneMapping = THREE.ReinhardToneMapping;
-renderer.setSize(sizes.width, sizes.height)
+renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 
