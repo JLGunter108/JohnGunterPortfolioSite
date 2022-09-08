@@ -1,8 +1,7 @@
 import * as THREE from 'three'
-import { DoubleSide } from 'three';
-;
+import { DoubleSide, MeshStandardMaterial } from 'three';
+import { Vector3, VectorKeyframeTrack } from 'three';
 
-//debug
 
 // loading
 const textureLoader = new THREE.TextureLoader()
@@ -10,9 +9,9 @@ const textureLoader = new THREE.TextureLoader()
 const divetTexture = textureLoader.load('textures/normal-divets.jpg')
 const waterTexture = textureLoader.load('textures/water.jpg');
 const roughTexture = textureLoader.load('textures/normal-pumice.jfif');
+const fogTexture = textureLoader.load('textures/realistic-fog.jpg');
 
-// Debug
-
+const satelites = [];
 
 // Canvas
 
@@ -21,18 +20,20 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 
 const scene = new THREE.Scene()
-
+scene.background = fogTexture;
 
 // Objects
-const geometry = new THREE.SphereGeometry( .5, 64, 64);
+const geometry = new THREE.SphereGeometry( .3, 64, 64);
 const sunGeometry = new THREE.SphereGeometry(.02,16,8);
-const shadowBoxGeometry = new THREE.PlaneGeometry( 9,1.5 );
+const shadowBoxGeometry = new THREE.PlaneGeometry( 6, 6 );
+const randGeometry = new THREE.SphereGeometry(Math.random()*.02, 64, 64)
 
 // Materials
 
-const material = new THREE.MeshPhongMaterial({color: 0xffffff, envMap:divetTexture})
-material.transparent = true;
-material.blending = THREE.AdditiveBlending;
+const material = new THREE.MeshStandardMaterial({color: 0x505050, normalMap:waterTexture})
+material.side = DoubleSide;
+// material.blending = THREE.AdditiveBlending;
+const randMaterial = new MeshStandardMaterial({color: 0x808080, normalMap: divetTexture})
 const sunMaterial = new THREE.MeshStandardMaterial( {
     emissive: 0xffffee,
     emissiveIntensity: 1,
@@ -51,17 +52,32 @@ shadowBox.position.z = -1
 shadowBox.receiveShadow = true;
 scene.add(shadowBox);
 
+for ( let i = 0; i < 50; i ++ ) {
+
+    const mesh = new THREE.Mesh( randGeometry, randMaterial );
+    mesh.castShadow = true;
+
+    mesh.position.x = Math.random()*3 - 1;
+    mesh.position.y = Math.random()*3 - 1;
+    mesh.position.z = Math.random()*3 - 1;
+
+    mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
+
+    sphere.add( mesh );
+    satelites.push( mesh );
+}
+
 // Lights
 
-// const pointLight = new THREE.PointLight(0xff0000, 2)
-// pointLight.position.set(10,-10,5)
+// const pointLight = new THREE.PointLight(0x000000, 3)
+// pointLight.position.set(0,0,0)
 // scene.add(pointLight);
 
 // const pointLight2 = new THREE.PointLight(0xffffff, 10)
 // pointLight2.position.set(-19.14,0.71,-20)
 // scene.add(pointLight2)
 
-const sunLight = new THREE.PointLight(0xffeeee, 7, 50, 2);
+const sunLight = new THREE.PointLight(0xffffff, 9, 7, 2);
 sunLight.add( new THREE.Mesh(sunGeometry,sunMaterial));
 sunLight.position.set(2.5, 0, -0.2);
 sunLight.castShadow = true;
@@ -69,7 +85,7 @@ const sunLightObj = new THREE.Object3D();
 sunLightObj.add(sunLight);
 scene.add(sunLightObj);
 
-
+scene.add(new THREE.AmbientLight(0xffffff, .1, 1));
 // Sizing
 
 const sizes = {
@@ -90,7 +106,7 @@ window.addEventListener('resize', () =>
 // Base camera
 
 const camera = new THREE.PerspectiveCamera(95, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(0,0,2.5)
+camera.position.set(0,0,3)
 scene.add(camera);
 
 // Renderer
@@ -126,11 +142,15 @@ const clock = new THREE.Clock()
 const tick = () =>{
     const elapsedTime = clock.getElapsedTime()
 
+
     camera.position.x += ( mouseX - camera.position.x ) * .05;
     camera.position.y += ( - mouseY - camera.position.y ) * .05;
     camera.lookAt(scene.position)
+    sphere.rotation.y = 3
     sunLight.rotateY(-0.008);
     sunLightObj.rotateY(-0.008);
+    sunLight.rotateX(-.0002)
+    sunLightObj.rotateX(-.002)
     renderer.render(scene, camera)
     window.requestAnimationFrame(tick)
 }
