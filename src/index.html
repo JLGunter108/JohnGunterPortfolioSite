@@ -106,14 +106,11 @@ h1 {
 }
 .slide:nth-child(3) {
     background-color: rgb(5, 0, 0);
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-}
-.slide:nth-child(4) {
-    background-color: rgb(5, 0, 0);
     display: grid;
     place-items: center;
+}
+#bars::-webkit-scrollbar {
+    display: none;
 }
     </style>
 </head>
@@ -129,8 +126,8 @@ h1 {
         <button class="slide-arrow" id="slide-arrow-next">
             &#8250;
         </button>
-        <ul class="slides-container" id="slides-container">
-            <li class="slide">
+        <ul style="width:100vw;" class="slides-container" id="slides-container">
+            <li id="intro" class="slide">
                 <br><br>
                 <h3 style="text-decoration: underline;">Introductions</h3>
                 <br>
@@ -142,101 +139,98 @@ h1 {
                 <br>
                 <p style="font-size: 1.5vh;"> * Current Focus</p>
                 <br><br><br>
-                </div>
-                <div style="display:flex; float: right;">
+                <div id="bars" style="display: flex; flex-wrap: wrap; overflow-y: scroll;">
                     <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 10vh;" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/html-5-4000152-3334417.png" alt="HTML">
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height:9.2vh;" src="http://cdn.onlinewebfonts.com/svg/img_565485.png" alt="CSS">
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 9.7vh;" src="https://img.icons8.com/ios-filled/500/javascript-logo.png" alt="JS">
-                    <p style="font-size: 5vh;">*</p>
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 9.7vh;" src="https://global.discourse-cdn.com/standard17/uploads/threejs/original/2X/e/e4f86d2200d2d35c30f7b1494e96b9595ebc2751.png" alt="threejs">
-                    <p style="font-size: 5vh;">*</p>
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 10vh;" src="https://cdn.worldvectorlogo.com/logos/blender-1.svg" alt="Blender">
-                    <p style="font-size: 5vh;">*</p>
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 10vh;" src="https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/Python_logo-512.png" alt="Python">
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 10vh;" src="https://cdn.freebiesupply.com/logos/thumbs/2x/mysql-1-logo.png" alt="SQL">
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 10vh;" src="https://git-scm.com/images/logos/downloads/Git-Icon-Black.png" alt="Git">
-                </div>
-                <span style="color: black;">space</span>
-                <div style="display: flex; flex-direction:column; place-items: center;">
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
-                    <img style="filter: invert(1); height: 3vh; width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
-                    <img style="filter: invert(1); height: 10vh;" src="https://cdn.iconscout.com/icon/free/png-256/aws-3215369-2673787.png" alt="AWS">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 10vh;" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/html-5-4000152-3334417.png" alt="HTML">
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height:9.2vh;" src="http://cdn.onlinewebfonts.com/svg/img_565485.png" alt="CSS">
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 9.7vh;" src="https://img.icons8.com/ios-filled/500/javascript-logo.png" alt="JS"><br>
+                        <p style="font-size: 5vh;">*</p>
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 9.7vh;" src="https://global.discourse-cdn.com/standard17/uploads/threejs/original/2X/e/e4f86d2200d2d35c30f7b1494e96b9595ebc2751.png" alt="threejs"><br>
+                        <p style="font-size: 5vh;">*</p>
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 10vh;" src="https://cdn.worldvectorlogo.com/logos/blender-1.svg" alt="Blender"><br>
+                        <p style="font-size: 5vh;">*</p>
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 10vh;" src="https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/Python_logo-512.png" alt="Python">
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vw;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 10vh;" src="https://cdn.freebiesupply.com/logos/thumbs/2x/mysql-1-logo.png" alt="SQL">
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 10vh;" src="https://git-scm.com/images/logos/downloads/Git-Icon-Black.png" alt="Git">
+                    </div>
+                    <span style="color: black;">space</span>
+                    <div style="display: flex; flex-direction:column; place-items: center;">
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://www.kindpng.com/picc/m/46-463446_open-circle-png-ancient-asian-peace-symbol-transparent.png" alt=""><br>
+                        <img style="filter: invert(1); height: 3vh; max-width: 3vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklqoZ9snXRveCMzzOTem01SE8aw-RlVDFGQ&usqp=CAU" alt=""><br>
+                        <img style="filter: invert(1); height: 10vh;" src="https://cdn.iconscout.com/icon/free/png-256/aws-3215369-2673787.png" alt="AWS">
+                    </div>
                 </div>
             </li>
-            <li class="slide">
+            <li id="resume" class="slide">
                 <br><br>
                 <h3 style="text-decoration: underline;">Resume</h3>
+
             </li>
-            <li class="slide">
-                <br><br>
-                <h3 style="text-decoration: underline;">Projects</h3>
-            </li>
-            <li class="slide">
+            <li id="contact" class="slide">
                 <p>JohnGunter503@Gmail.com</p>
             </li>
         </ul>

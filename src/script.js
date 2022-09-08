@@ -75,7 +75,7 @@ scene.add(sunLightObj);
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
-}
+};
 
 window.addEventListener('resize', () =>
 {
@@ -85,7 +85,7 @@ window.addEventListener('resize', () =>
     camera.updateProjectionMatrix();
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
+});
 
 // Base camera
 
