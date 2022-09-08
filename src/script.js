@@ -30,14 +30,14 @@ const randGeometry = new THREE.SphereGeometry(Math.random()*.02, 64, 64)
 
 // Materials
 
-const material = new THREE.MeshStandardMaterial({color: 0x505050, normalMap:waterTexture})
+const material = new THREE.MeshStandardMaterial({color: 0x505050})
 material.side = DoubleSide;
 // material.blending = THREE.AdditiveBlending;
 const randMaterial = new MeshStandardMaterial({color: 0x808080, normalMap: divetTexture})
 const sunMaterial = new THREE.MeshStandardMaterial( {
     emissive: 0xffffee,
     emissiveIntensity: 1,
-    color: 0x000000
+    color: 0xffffff
 });
 const shadowBoxMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, normalMap: roughTexture});
 shadowBoxMaterial.side = DoubleSide;
@@ -52,19 +52,19 @@ shadowBox.position.z = -1
 shadowBox.receiveShadow = true;
 scene.add(shadowBox);
 
-for ( let i = 0; i < 50; i ++ ) {
+for ( let i = 0; i < 100; i ++ ) {
 
-    const mesh = new THREE.Mesh( randGeometry, randMaterial );
-    mesh.castShadow = true;
+    const randMesh = new THREE.Mesh( randGeometry, randMaterial );
+    randMesh.castShadow = true;
 
-    mesh.position.x = Math.random()*3 - 1;
-    mesh.position.y = Math.random()*3 - 1;
-    mesh.position.z = Math.random()*3 - 1;
+    randMesh.position.x = Math.random()*4 - 1;
+    randMesh.position.y = Math.random()*4 - 1;
+    randMesh.position.z = Math.random()*4 - 1;
 
-    mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
+    randMesh.scale.x = randMesh.scale.y = randMesh.scale.z = Math.random() * 3 + 1;
 
-    sphere.add( mesh );
-    satelites.push( mesh );
+    sphere.add( randMesh );
+    satelites.push( randMesh );
 }
 
 // Lights
@@ -77,7 +77,7 @@ for ( let i = 0; i < 50; i ++ ) {
 // pointLight2.position.set(-19.14,0.71,-20)
 // scene.add(pointLight2)
 
-const sunLight = new THREE.PointLight(0xffffff, 9, 7, 2);
+const sunLight = new THREE.PointLight(0xc0c0c0, 19, 4.6, 3);
 sunLight.add( new THREE.Mesh(sunGeometry,sunMaterial));
 sunLight.position.set(2.5, 0, -0.2);
 sunLight.castShadow = true;
@@ -85,7 +85,7 @@ const sunLightObj = new THREE.Object3D();
 sunLightObj.add(sunLight);
 scene.add(sunLightObj);
 
-scene.add(new THREE.AmbientLight(0xffffff, .1, 1));
+scene.add(new THREE.AmbientLight(0xf7ca16, .01, 1));
 // Sizing
 
 const sizes = {
@@ -146,7 +146,7 @@ const tick = () =>{
     camera.position.x += ( mouseX - camera.position.x ) * .05;
     camera.position.y += ( - mouseY - camera.position.y ) * .05;
     camera.lookAt(scene.position)
-    sphere.rotation.y = 3
+    sphere.rotateY(.005)
     sunLight.rotateY(-0.008);
     sunLightObj.rotateY(-0.008);
     sunLight.rotateX(-.0002)

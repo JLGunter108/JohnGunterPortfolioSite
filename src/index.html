@@ -17,7 +17,9 @@ body {
     background-color: rgb(5, 0, 0);}
 body {
     overflow-x: hidden;
-    
+}
+body::-webkit-scrollbar{
+    display: none;
 }
 #banner {
     height: 100vh;
@@ -43,7 +45,7 @@ h1 {
 }
 .slides-container {
     height: calc(100vh - 2rem);
-    width: 100%;
+    width: 100vw;
     display: flex;
     overflow: scroll;
     scroll-behavior: smooth;
@@ -110,18 +112,19 @@ h1 {
 }
 .row{
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-gap: 15px;
+grid-template-columns: 1fr 1fr 3fr;
+grid-gap: 1rem;
 place-items: center;
 }
 a {
     color: white;
+    text-decoration: none;
 }
     </style>
 </head>
 <body>
-    <div id="banner">
-        <h1>John Gunter</h1>
+    <div id="banner"><br>
+        <h1>never stop learning</h1>
     </div>
     <canvas class="webgl"></canvas>
     <section class="slider-wrapper">
@@ -136,11 +139,11 @@ a {
                 <br><br>
                 <h2 style="text-decoration: underline;">Introductions</h2>
                 <br>
-                <p>My name is John Gunter</p>
+                <p>John Gunter</p>
                 <br>
-                <p>I am an avid collector of programming knowledge and a purveyor of fine UI/UX.</p>
+                <p>Avid collector of programming knowledge and purveyor of fine UI/UX</p>
                 <br>
-                <p>July 2022 graduate from Coding Dojo's Python program where I received a black belt and rekindled a love of tech.</p>
+                <p>July 2022 graduate from Coding Dojo's Python program with a black belt and renewed passion for tech</p>
                 <br>
                 <p style="font-size: 1.5vh;"> * Current Focus</p>
                 <br><br><br>
@@ -238,7 +241,7 @@ a {
                         <h3 style="text-decoration: underline;">Training</h3><br>
                         <h4>Coding Dojo</h4>
                         <p>May - July 2022</p>
-                        <p>- Web development (yellow belt - only option)</p>
+                        <p>- Web development (yellow belt)</p>
                         <p>- Python full-stack (black belt)</p>
                         <p>- Algorithms</p>
                         <br>
@@ -247,16 +250,16 @@ a {
                             <li>Python<ul>
                                 <li>Django</li>
                                 <li>Flask</li>
-                            </ul></li>
-                            <li>MySql</li>
-                            <li>HTML/CSS</li>
+                            </ul></li><br>
+                            <li>MySql</li><br>
+                            <li>HTML/CSS</li><br>
                             <li>JavaScript <ul>
+                                <li>Vanilla</li>
                                 <li>Svelte</li>
-                                <li>Three.js</li>
-                                <li></li>
+                                <li>Three.js</li><br>
                             </ul></li>
-                            <li></li>
-                            <li></li>
+                            <li>More Every Day</li>
+                            
                         </ol>
 
                     </div>
