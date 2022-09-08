@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { DoubleSide, MeshStandardMaterial } from 'three';
+import { BackSide, DoubleSide, MeshStandardMaterial } from 'three';
 import { Vector3, VectorKeyframeTrack } from 'three';
 
 
@@ -23,16 +23,17 @@ const scene = new THREE.Scene()
 scene.background = fogTexture;
 
 // Objects
-const geometry = new THREE.SphereGeometry( .3, 64, 64);
+const geometry = new THREE.SphereGeometry( .000000001, 64, 64);
 const sunGeometry = new THREE.SphereGeometry(.02,16,8);
 const shadowBoxGeometry = new THREE.CircleGeometry(6, 64,  );
 
 
 // Materials
 
-const material = new THREE.MeshStandardMaterial({color: 0x505050, normalMap: divetTexture })
-material.side = DoubleSide;
-// material.blending = THREE.AdditiveBlending;
+const material = new THREE.MeshStandardMaterial()
+material.side = BackSide;
+material.transparent = true;
+material.blending = THREE.AdditiveBlending;
 const randMaterial = new MeshStandardMaterial({color: 0x808080, normalMap: divetTexture})
 const sunMaterial = new THREE.MeshStandardMaterial( {
     emissive: 0xffffee,
@@ -45,7 +46,6 @@ shadowBoxMaterial.side = DoubleSide;
 // Mesh
 
 const sphere = new THREE.Mesh(geometry,material)
-sphere.castShadow = true;
 scene.add(sphere);
 const shadowBox = new THREE.Mesh(shadowBoxGeometry, shadowBoxMaterial)
 shadowBox.position.z = -3
@@ -145,6 +145,8 @@ const tick = () =>{
     camera.lookAt(scene.position);
     // sphere.rotateY(Math.random()*(0.001-0.008)+0.008);
     // sphere.rotateX(Math.random()*(0.0007-0.001)+0.001);
+    sphere.rotateX(.0009);
+    sphere.rotateY(Math.random()*0.0009);
     sunLight.rotateY(-0.008);
     sunLightObj.rotateY(-0.008);
     sunLight.rotateX(-.0002)
