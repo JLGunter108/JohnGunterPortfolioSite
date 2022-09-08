@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { DoubleSide } from 'three';
-
-let previousShadowMap = false;
+;
 
 //debug
 
@@ -16,9 +15,11 @@ const roughTexture = textureLoader.load('textures/normal-pumice.jfif');
 
 
 // Canvas
+
 const canvas = document.querySelector('canvas.webgl')
 
 // Scene
+
 const scene = new THREE.Scene()
 
 
@@ -41,6 +42,7 @@ const shadowBoxMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, norm
 shadowBoxMaterial.side = DoubleSide;
 
 // Mesh
+
 const sphere = new THREE.Mesh(geometry,material)
 sphere.castShadow = true;
 scene.add(sphere);
@@ -51,15 +53,15 @@ scene.add(shadowBox);
 
 // Lights
 
-// const pointLight = new THREE.PointLight(0xff0000, 10)
+// const pointLight = new THREE.PointLight(0xff0000, 2)
 // pointLight.position.set(10,-10,5)
-// scene.add(pointLight)
+// scene.add(pointLight);
 
 // const pointLight2 = new THREE.PointLight(0xffffff, 10)
 // pointLight2.position.set(-19.14,0.71,-20)
 // scene.add(pointLight2)
 
-const sunLight = new THREE.PointLight(0xffeeee, 7, 100, 2);
+const sunLight = new THREE.PointLight(0xffeeee, 7, 50, 2);
 sunLight.add( new THREE.Mesh(sunGeometry,sunMaterial));
 sunLight.position.set(2.5, 0, -0.2);
 sunLight.castShadow = true;
@@ -69,6 +71,7 @@ scene.add(sunLightObj);
 
 
 // Sizing
+
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -85,10 +88,10 @@ window.addEventListener('resize', () =>
 })
 
 // Base camera
+
 const camera = new THREE.PerspectiveCamera(95, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(0,0,2.5)
 scene.add(camera);
-
 
 // Renderer
 
@@ -103,17 +106,12 @@ renderer.toneMapping = THREE.ReinhardToneMapping;
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-
-
-
-/**
- * Animate
- */
+// Animation
 
 let mouseX = 0;
 let mouseY = 0;
 
-document.addEventListener('mousemove', onDocumentMouseMove)
+document.addEventListener('mousemove', onDocumentMouseMove);
 
 const windowX = window.innerWidth / 2;
 const windowY = window.innerHeight / 2;
@@ -125,25 +123,36 @@ function onDocumentMouseMove(event) {
 
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
-
+const tick = () =>{
     const elapsedTime = clock.getElapsedTime()
 
     camera.position.x += ( mouseX - camera.position.x ) * .05;
     camera.position.y += ( - mouseY - camera.position.y ) * .05;
     camera.lookAt(scene.position)
-    // Update objects
-    sphere.rotation.y = .2 * elapsedTime
     sunLight.rotateY(-0.008);
     sunLightObj.rotateY(-0.008);
-    // Render
     renderer.render(scene, camera)
-
-    // Call tick again on the next frame
     window.requestAnimationFrame(tick)
-
-
 }
-
 tick()
+
+// document.addEventListener('click', onDocumentMouseClick);
+
+// function onDocumentMouseClick(event) {
+    
+// }
+
+const slidesContainer = document.getElementById("slides-container");
+const slide = document.querySelector(".slide");
+const prevButton = document.getElementById("slide-arrow-prev");
+const nextButton = document.getElementById("slide-arrow-next");
+
+nextButton.addEventListener("click", () => {
+    const slideWidth = slide.clientWidth;
+    slidesContainer.scrollLeft += slideWidth;
+});
+
+prevButton.addEventListener("click", () => {
+    const slideWidth = slide.clientWidth;
+    slidesContainer.scrollLeft -= slideWidth;
+});
