@@ -25,12 +25,12 @@ scene.background = fogTexture;
 // Objects
 const geometry = new THREE.SphereGeometry( .3, 64, 64);
 const sunGeometry = new THREE.SphereGeometry(.02,16,8);
-const shadowBoxGeometry = new THREE.PlaneGeometry( 6, 6 );
-const randGeometry = new THREE.SphereGeometry(Math.random()*.02, 64, 64)
+const shadowBoxGeometry = new THREE.CircleGeometry(6, 64,  );
+
 
 // Materials
 
-const material = new THREE.MeshStandardMaterial({color: 0x505050})
+const material = new THREE.MeshStandardMaterial({color: 0x505050, normalMap: divetTexture })
 material.side = DoubleSide;
 // material.blending = THREE.AdditiveBlending;
 const randMaterial = new MeshStandardMaterial({color: 0x808080, normalMap: divetTexture})
@@ -48,19 +48,18 @@ const sphere = new THREE.Mesh(geometry,material)
 sphere.castShadow = true;
 scene.add(sphere);
 const shadowBox = new THREE.Mesh(shadowBoxGeometry, shadowBoxMaterial)
-shadowBox.position.z = -1
+shadowBox.position.z = -3
 shadowBox.receiveShadow = true;
 scene.add(shadowBox);
 
 for ( let i = 0; i < 100; i ++ ) {
 
+    const randGeometry = new THREE.SphereGeometry(Math.random()*.02, 64, 64)
     const randMesh = new THREE.Mesh( randGeometry, randMaterial );
     randMesh.castShadow = true;
-
-    randMesh.position.x = Math.random()*4 - 1;
-    randMesh.position.y = Math.random()*4 - 1;
-    randMesh.position.z = Math.random()*4 - 1;
-
+    randMesh.position.x = Math.random()*(3+3) - 3;
+    randMesh.position.y = Math.random()*(3+3) - 3;
+    randMesh.position.z = Math.random()*(3+3) - 3;
     randMesh.scale.x = randMesh.scale.y = randMesh.scale.z = Math.random() * 3 + 1;
 
     sphere.add( randMesh );
@@ -77,7 +76,7 @@ for ( let i = 0; i < 100; i ++ ) {
 // pointLight2.position.set(-19.14,0.71,-20)
 // scene.add(pointLight2)
 
-const sunLight = new THREE.PointLight(0xc0c0c0, 19, 4.6, 3);
+const sunLight = new THREE.PointLight(0xc0c0c0, 19, 7, 3);
 sunLight.add( new THREE.Mesh(sunGeometry,sunMaterial));
 sunLight.position.set(2.5, 0, -0.2);
 sunLight.castShadow = true;
@@ -124,6 +123,8 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 // Animation
 
+const speed = [ 0.008, 0.006, 0.004]
+
 let mouseX = 0;
 let mouseY = 0;
 
@@ -137,16 +138,13 @@ function onDocumentMouseMove(event) {
     mouseY = ( event.clientY - windowY ) / 1000;
 }
 
-const clock = new THREE.Clock()
-
 const tick = () =>{
-    const elapsedTime = clock.getElapsedTime()
 
-
-    camera.position.x += ( mouseX - camera.position.x ) * .05;
-    camera.position.y += ( - mouseY - camera.position.y ) * .05;
-    camera.lookAt(scene.position)
-    sphere.rotateY(.005)
+    camera.position.x += ( mouseX - camera.position.x ) * .1;
+    camera.position.y += ( - mouseY - camera.position.y ) * .1;
+    camera.lookAt(scene.position);
+    // sphere.rotateY(Math.random()*(0.001-0.008)+0.008);
+    // sphere.rotateX(Math.random()*(0.0007-0.001)+0.001);
     sunLight.rotateY(-0.008);
     sunLightObj.rotateY(-0.008);
     sunLight.rotateX(-.0002)
